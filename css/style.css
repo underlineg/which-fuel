@@ -83,7 +83,7 @@ section{
     }
 
     .splashscreen .container-image-splashscreen{
-        background-image: url('../img/closeup-of-fuel-nozzles-at-a-gas-station.jpg');
+        /* background-image: url('../img/closeup-of-fuel-nozzles-at-a-gas-station.jpg'); */
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
@@ -139,10 +139,40 @@ section{
             .container-inputs .container-input-fuel input{
                 border:1px solid #ad9;
                 padding: 0.4rem 0;
-                
                 width: 100%;
                 text-align: center;
                 font-size: 2.4rem;
                 outline: none;
                 font-weight: 700;
             }
+
+    .alert-user{
+        width: 80%;
+        margin:1.6rem auto;
+        text-align: center;
+        font-size: 1.6rem;
+        background: rgb(38,170,198);
+        background: -moz-radial-gradient(circle, rgba(38,170,198,1) 50%, rgba(13,213,117,1) 100%);
+        background: -webkit-radial-gradient(circle, rgba(38,170,198,1) 50%, rgba(13,213,117,1) 100%);
+        background: radial-gradient(circle, rgba(38,170,198,1) 50%, rgba(13,213,117,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#26aac6",endColorstr="#0dd575",GradientType=1);
+        border-radius: 1rem;
+        padding: 0;
+        font-weight: 700;
+        height: 0;
+        overflow: hidden;
+        transition: all 300ms ease-out;
+    }
+    .alert-user.open{
+        
+        height: auto;
+        padding: 1.2rem 1.8rem;
+    }
+    .alert-user ul{
+        
+    }
+    .alert-user ul li{
+        text-align: left;
+        font-size: 1.2rem;
+        font-weight: 400;
+    }
