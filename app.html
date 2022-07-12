@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qual combustivel escolher</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&display=swap" rel="stylesheet">
+
+    <link rel="preload" href="css/reset.css" as="style">
+    <link rel="stylesheet" href="css/reset.css">
+
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <section class="splashscreen">
+        <h1>Qual combustivel devo utilizar em meu carro?</h1>
+        <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium mollitia nisi aliquam. Quasi earum assumenda tempore! Perferendis mollitia debitis illo asperiores, provident assumenda magnam architecto.</h4>
+        <button>Começar!</button>
+    </section>
+    <section>
+        <h1>Escolha seu combustível</h1>
+        <form>
+            <div class="container-inputs">
+                <div class="container-input-fuel"><label for="alchool">Preço do alchool</label><input type="text" id="alchool" name="alchool" data-type="alchool"></div>
+                <div class="container-input-fuel"><label for="gasoline">Preço da gasolina</label><input type="text" id="gasoline" name="gasoline" data-type="gasoline"></div>
+                <!-- a desenvolver no futuro
+                    <div class="container-input-fuel"><div class="circle"><button class="icon-plus"></button></div></div> 
+                -->
+            </div>
+            <button>Calcular!</button>
+        </form>
+    </section>
+
+    <script src="scripts/main.js" type="module"></script>
+</body>
+</html>
