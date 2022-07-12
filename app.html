@@ -31,8 +31,8 @@
         <h1>Escolha seu combustível</h1>
         <form>
             <div class="container-inputs">
-                <div class="container-input-fuel"><label for="alchool">Preço do alchool</label><input type="text" id="alchool" name="alchool" data-type="alchool"></div>
-                <div class="container-input-fuel"><label for="gasoline">Preço da gasolina</label><input type="text" id="gasoline" name="gasoline" data-type="gasoline"></div>
+                <div class="container-input-fuel"><label for="alchool">Preço do alchool</label><input inputmode="numeric" placeholder="0,00" id="alchool" name="alchool" data-type="alchool"></div>
+                <div class="container-input-fuel"><label for="gasoline">Preço da gasolina</label><input inputmode="numeric" placeholder="0,00" id="gasoline" name="gasoline" data-type="gasoline"></div>
                 <!-- a desenvolver no futuro
                     <div class="container-input-fuel"><div class="circle"><button class="icon-plus"></button></div></div> 
                 -->
@@ -41,7 +41,7 @@
         </form>
         <div class="alert-user"></div>
     </section>
-
+    <script src="js/simple-mask-money.js"></script>
     <script src="js/main.js" type="module"></script>
 </body>
 </html>

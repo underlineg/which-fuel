@@ -83,7 +83,7 @@ section{
     }
 
     .splashscreen .container-image-splashscreen{
-        /* background-image: url('../img/closeup-of-fuel-nozzles-at-a-gas-station.jpg'); */
+        background-image: url('../img/closeup-of-fuel-nozzles-at-a-gas-station.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
