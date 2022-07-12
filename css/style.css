@@ -24,6 +24,7 @@ input, button{
     border:0;
     background-color: transparent;
     font-size: 1rem ;
+    color: #fff;
 }
 
 button{
@@ -33,6 +34,7 @@ button{
 
 section{
     height: 100vh;
+    overflow: hidden;
 }
 
 
@@ -78,8 +80,6 @@ section{
         flex-basis: auto;
         align-self: auto;
         order: 0;
-        align-items: center;
-        justify-content: center;
     }
 
     .splashscreen .container-image-splashscreen{
@@ -95,3 +95,54 @@ section{
         padding: 2rem;
         color: #fff;
     }
+
+
+.main-section{
+    background-color: rgb(46, 46, 46);
+    color: #fff;
+}
+    .main-section form button{
+        display: block;
+    }
+
+    .main-section h1{
+        text-align: center;
+    }
+    .container-inputs{
+        width: 80%;
+        margin: 1rem auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: normal;
+        align-items: center;
+        justify-content: center;
+    }
+        .container-inputs .container-input-fuel{
+            flex-grow: 0;
+            flex-shrink: 1;
+            flex-basis: auto;
+            align-self: auto;
+            order: 0;
+            width: 50%;
+            padding: 0.5rem;
+            text-align: center;
+            overflow: hidden;
+        }
+            .container-inputs .container-input-fuel label{
+                display: block;
+                margin: 0.8rem 0;
+                font-weight: 300;
+                text-transform: uppercase;
+                font-size: 1.2rem;
+            }
+            .container-inputs .container-input-fuel input{
+                border:1px solid #ad9;
+                padding: 0.4rem 0;
+                
+                width: 100%;
+                text-align: center;
+                font-size: 2.4rem;
+                outline: none;
+                font-weight: 700;
+            }
