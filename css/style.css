@@ -1,0 +1,97 @@
+html, body{
+    height: 100vh;
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+h1{
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 1.2rem 0;
+}
+
+h4{
+    font-size: 2.2rem;
+    margin: 0.9rem 0;
+}
+
+input, button{
+    border:0;
+    background-color: transparent;
+    font-size: 1rem ;
+}
+
+button{
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+section{
+    height: 100vh;
+}
+
+
+.btn{
+    padding:1.2rem 1.8rem;
+    text-transform: uppercase;
+    font-size: 2rem;
+    background: rgb(38,170,198);
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    margin: 1.2rem auto;
+    border-radius: 0.8rem;
+    text-decoration: none;
+    -webkit-box-shadow: 2px 2px 11px 0px rgba(0, 0, 0, 0.30);
+    -moz-box-shadow:    2px 2px 11px 0px rgba(0, 0, 0, 0.30);
+    box-shadow:         2px 2px 11px 0px rgba(0, 0, 0, 0.30);
+    font-weight: 700;
+    transition: all 300ms ease-out;
+}
+    .btn:hover{
+        background: rgba(13,213,117,1);
+    }
+
+.splashscreen{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: normal;
+    align-items: center;
+    justify-content: center;
+    background: rgb(0,204,170);
+    background: -moz-linear-gradient(131deg, rgba(0,204,170,1) 0%, rgba(1,125,117,1) 100%);
+    background: -webkit-linear-gradient(131deg, rgba(0,204,170,1) 0%, rgba(1,125,117,1) 100%);
+    background: linear-gradient(131deg, rgba(0,204,170,1) 0%, rgba(1,125,117,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ccaa",endColorstr="#017d75",GradientType=1);
+}
+
+    .splashscreen .container-image-splashscreen, .splashscreen  .container-text-splashscreen{
+        width: 50%; 
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: auto;
+        align-self: auto;
+        order: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .splashscreen .container-image-splashscreen{
+        background-image: url('../img/closeup-of-fuel-nozzles-at-a-gas-station.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 100%;
+    }
+
+
+    .splashscreen  .container-text-splashscreen{
+        padding: 2rem;
+        color: #fff;
+    }
