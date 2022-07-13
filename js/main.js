@@ -5,35 +5,13 @@ export let init = function(){
     let lim = 0.7;
     let baseAlertHTML = "";
     
-    const args = {
-        afterFormat(e) { },
-        allowNegative: false,
-        beforeFormat(e) { },
-        negativeSignAfter: false,
-        prefix: 'R$',
-        suffix: '',
-        fixed: true,
-        fractionDigits: 2,
-        decimalSeparator: ',',
-        thousandsSeparator: '.',
-        cursor: 'end'
-      };
-
-      // Select the element
-      let inputAlchool = SimpleMaskMoney.setMask('#alchool', args);
-      let inputGasolina = SimpleMaskMoney.setMask('#gasoline', args);
-
-      // Convert the input value to a number, which you can save e.g. to a database:
-      inputAlchool.formatToNumber();
-      inputGasolina.formatToNumber();
-
     
     target.addEventListener("click", (x)=> {
         x.preventDefault()
 
         fuel1Value = parseFloat(document.querySelector('#alchool').value.replace(',', ".").replace("R$",""));
         fuel2Value = parseFloat(document.querySelector('#gasoline').value.replace(',', ".").replace("R$",""));
-        console.log(fuel1Value, fuel2Value)
+        
         count = fuel1Value / fuel2Value
 
         baseAlertHTML = ""
