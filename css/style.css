@@ -37,6 +37,10 @@ section{
     overflow: hidden;
 }
 
+li{
+    margin: 0.8rem;
+}
+
 
 .btn{
     padding:1.2rem 1.8rem;
@@ -72,6 +76,8 @@ section{
     background: linear-gradient(131deg, rgba(0,204,170,1) 0%, rgba(1,125,117,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ccaa",endColorstr="#017d75",GradientType=1);
 }
+
+
 
     .splashscreen .container-image-splashscreen, .splashscreen  .container-text-splashscreen{
         width: 50%; 
@@ -176,3 +182,51 @@ section{
         font-size: 1.2rem;
         font-weight: 400;
     }
+
+
+@media only screen and  (max-width:1125px) { 
+    /* CSS rules here */
+    h1{
+        font-size: 1.5rem;
+    }
+    h4{
+        font-size: 1rem;
+    }
+    .btn{
+        font-size: 0.8rem;
+        padding: 0.8rem 1.2rem;
+    }
+    .splashscreen{
+        flex-direction: column;
+    }
+    .splashscreen .container-image-splashscreen, .splashscreen  .container-text-splashscreen{
+        width: 100%;
+    }
+    .splashscreen  .container-text-splashscreen h1, .splashscreen  .container-text-splashscreen h4{
+        margin: 1.2rem 1.5rem;
+    }
+    .splashscreen  .container-text-splashscreen .btn{
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
+        display: block;
+    }
+
+    .container-inputs .container-input-fuel label{
+        font-size: 0.8rem;
+    }
+    .container-inputs .container-input-fuel input{
+        font-size: 1.2rem;
+    }
+
+    .alert-user{
+        width: 60%;
+
+    }
+    .alert-user.open{
+        padding: 0.8rem 1.2rem;
+    }
+    .alert-user ul li{
+        font-size: 0.8rem;
+    }
+}
