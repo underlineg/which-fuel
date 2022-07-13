@@ -6,6 +6,18 @@ export let init = function(){
     let fuel1Value, fuel2Value, count = "";
     let lim = 0.7;
     let baseAlertHTML = "";
+
+    $('.container-text-splashscreen .btn').click((e) =>{
+        e.preventDefault();
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $('#main-section').offset().top
+        },'slow', 'linear',()=>{
+            setTimeout(()=>{
+                $('.splashscreen').remove(); 
+            }, 1000)
+           
+        })
+    })
     
     
     $('.btn-calcular').click((e)=> {
