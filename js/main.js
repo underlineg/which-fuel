@@ -1,4 +1,4 @@
-import {dealInputValue} from './dealInputValue'
+import {dealInputValue} from './dealInputValue.js'
 
 export let init = function(){
     let target = document.querySelector('.btn-calcular')
