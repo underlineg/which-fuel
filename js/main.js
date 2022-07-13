@@ -8,8 +8,8 @@ export let init = function(){
     let baseAlertHTML = "";
     
     
-    target.addEventListener("click", (x)=> {
-        x.preventDefault()
+    $('.btn-calcular').click((e)=> {
+       e.preventDefault()
 
        dealInputValue()
         .then( x => {
