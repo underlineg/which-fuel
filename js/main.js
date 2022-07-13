@@ -16,7 +16,7 @@ export let init = function(){
         fractionDigits: 2,
         decimalSeparator: ',',
         thousandsSeparator: '.',
-        cursor: 'move'
+        cursor: 'end'
       };
 
       // Select the element
@@ -36,18 +36,18 @@ export let init = function(){
         console.log(fuel1Value, fuel2Value)
         count = fuel1Value / fuel2Value
 
-        baseAlertHTML = "É melhor você abastecer com"
+        baseAlertHTML = ""
         
         if(count <= lim){
             //usar alcool
-            baseAlertHTML += ` alcool`
+            baseAlertHTML += `alcool`
             baseAlertHTML += `<ul>
                 <li>Apesar do alcool gastar mais, ele é mais economico nesse momento</li>
                 <li>Diferença de preço de ${Math.round(count*100)/100} %</li>
             </ul>`
         }else{
             //usar gasolina
-            baseAlertHTML += ` gasolina`
+            baseAlertHTML += `gasolina`
             baseAlertHTML += `<ul>
                 <li>Apesar da gasolina ser mais cara, seu rendimento é maior, então é a opção mais economica nesse momento</li>
                 <li>Diferença de preço de ${Math.round(count*100)/100} %</li>
