@@ -1,4 +1,5 @@
-import {dealInputValue} from './dealInputValue.js'
+import {dealInputValue} from './dealInputValue.js';
+import * as histogram from './histogram.js';
 
 export let init = function(){
     let target = document.querySelector('.btn-calcular')
@@ -6,6 +7,7 @@ export let init = function(){
     let fuel1Value, fuel2Value, count = "";
     let lim = 0.7;
     let baseAlertHTML = "";
+    let wich = "";
 
     $('.container-text-splashscreen .btn').click((e) =>{
         e.preventDefault();
@@ -14,12 +16,12 @@ export let init = function(){
         },'slow', 'linear',()=>{
             setTimeout(()=>{
                 $('.splashscreen').remove(); 
-            }, 1000)
-           
+            }, 1000);
         })
     })
-    
-    
+
+    histogram.plotHistogramTable( histogram.getHistogram() )
+
     $('.btn-calcular').click((e)=> {
        e.preventDefault()
 
@@ -39,6 +41,7 @@ export let init = function(){
             if(count <= lim){
                 //usar alcool
                 baseAlertHTML += `alcool`
+                wich = "alcool"
                 baseAlertHTML += `<ul>
                     <li>Apesar do alcool gastar mais, ele é mais economico nesse momento</li>
                     <li>Diferença de preço de ${Math.round(count*100)/100} %</li>
@@ -46,6 +49,7 @@ export let init = function(){
             }else{
                 //usar gasolina
                 baseAlertHTML += `gasolina`
+                wich = "gasolina"
                 baseAlertHTML += `<ul>
                     <li>Apesar da gasolina ser mais cara, seu rendimento é maior, então é a opção mais economica nesse momento</li>
                     <li>Diferença de preço de ${Math.round(count*100)/100} %</li>
@@ -54,7 +58,12 @@ export let init = function(){
 
             alertTarget.classList.add('open')
             alertTarget.innerHTML = baseAlertHTML;
-            
+
+            histogram.setHistogram({alchoolPrice:fuel1Value,
+                gasPrice:fuel2Value,
+                date:Date.now(),
+                fuel: wich
+            }).then( histogram.plotHistogramTable( histogram.getHistogram() ) )
         })
     })
 }

@@ -180,6 +180,30 @@ li{
         font-weight: 400;
     }
 
+.table-user-price-variation{
+    width: 90%;
+    margin: 1.2rem auto;
+}
+    .table-user-price-variation table{
+        width: 100%;
+        text-align: center;
+    }
+        .table-user-price-variation table h4{
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .table-user-price-variation table th{
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .table-user-price-variation table td, .table-user-price-variation table th{
+            border:1px solid rgba(255,255,255, 0.5);
+            padding: 0.5rem 0.8rem;
+        }
+        .table-user-price-variation table td{
+            font-size: 0.6rem;
+        }
+
 
 @media only screen and  (max-width:1125px) { 
     /* CSS rules here */
