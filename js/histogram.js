@@ -1,3 +1,5 @@
+let myChart = "";
+
 export let setHistogram = async function(obj){
     localStorage.setItem("price-"+obj.date, JSON.stringify({"fuel":obj.fuel, "alchool":obj.alchoolPrice, "gasoline":obj.gasPrice, "date": obj.date}))
 }
@@ -17,8 +19,64 @@ export let getHistogram = function(){
     return keys;
 }
 
-export let plotHistogramGraph = async function(data, totalResults){
+export let plotHistogramChart = async function(data, totalResults){
+    let dataPlot = data;
 
+    const labels = [
+        'January',
+        'February',
+        'March',
+    ];
+    
+    const data2 = {
+        labels: labels,
+        datasets: [
+            {
+                label: 'Gasolina',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [0, 10, 5],
+                fill: false,
+                cubicInterpolationMode: 'monotone',
+                tension: 0.4,
+                responsive: true,
+                pointStyle: 'circle',
+                pointRadius: 10,
+                pointHoverRadius: 15
+            },
+            {
+                label: 'Álcool',
+                backgroundColor: 'rgb(0, 99, 132)',
+                borderColor: 'rgb(0, 99, 132)',
+                data: [10, 5, 15],
+                fill: false,
+                responsive: true,
+                cubicInterpolationMode: 'monotone',
+                tension: 0.4,
+                pointStyle: 'circle',
+                pointRadius: 10,
+                pointHoverRadius: 15
+            }
+        ]
+    };
+
+    const config = {
+        type: 'line',
+        data: data2,
+        
+    };
+    
+    myChart = new Chart(
+        document.querySelector('#line-chart'),
+        config
+    );
+}
+
+export let updateLineChart = async function(data){
+    myChart.data.datasets[0].data = [0, 10, 5, 22]
+    myChart.data.datasets[1].data = [0, 15, 25, 32];
+    myChart.data.labels.push('August')
+    myChart.update();
 }
 
 export let plotHistogramTable = async function(data, totalResults){

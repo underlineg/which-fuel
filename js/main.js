@@ -21,6 +21,7 @@ export let init = function(){
     })
 
     histogram.plotHistogramTable( histogram.getHistogram() )
+    .then( histogram.plotHistogramChart( histogram.getHistogram() )  )
 
     $('.btn-calcular').click((e)=> {
        e.preventDefault()
@@ -64,6 +65,7 @@ export let init = function(){
                 date:Date.now(),
                 fuel: wich
             }).then( histogram.plotHistogramTable( histogram.getHistogram() ) )
+            .then( histogram.updateLineChart( histogram.getHistogram() ) )
         })
     })
 }

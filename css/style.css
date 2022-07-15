@@ -33,7 +33,7 @@ button{
 }
 
 section{
-    height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
 }
 
@@ -170,7 +170,7 @@ li{
         transition: all 300ms ease-out;
     }
     .alert-user.open{
-        
+        display: none !important;
         height: auto;
         padding: 1.2rem 1.8rem;
     }
