@@ -21,44 +21,48 @@ export let getHistogram = function(){
 
 export let plotHistogramChart = async function(data, totalResults){
     let dataPlot = data;
-
-    const labels = [
-        'January',
-        'February',
-        'March',
-    ];
+    // dataPlot.map(x=> {
+    //     console.log(x)
+    // })    
     
-    const data2 = {
+    let labels = ["1", "2", "3"];
+
+    let data2 = {
         labels: labels,
         datasets: [
-            {
-                label: 'Gasolina',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: [0, 10, 5],
-                fill: false,
-                cubicInterpolationMode: 'monotone',
-                tension: 0.4,
-                responsive: true,
-                pointStyle: 'circle',
-                pointRadius: 10,
-                pointHoverRadius: 15
-            },
-            {
-                label: 'Álcool',
-                backgroundColor: 'rgb(0, 99, 132)',
-                borderColor: 'rgb(0, 99, 132)',
-                data: [10, 5, 15],
-                fill: false,
-                responsive: true,
-                cubicInterpolationMode: 'monotone',
-                tension: 0.4,
-                pointStyle: 'circle',
-                pointRadius: 10,
-                pointHoverRadius: 15
-            }
-        ]
+        {
+            label: 'Gasolina',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [],
+            fill: false,
+            cubicInterpolationMode: 'monotone',
+            tension: 0.4,
+            responsive: true,
+            pointStyle: 'circle',
+            pointRadius: 10,
+            pointHoverRadius: 15
+        },
+        {
+            label: 'Álcool',
+            backgroundColor: 'rgb(0, 99, 132)',
+            borderColor: 'rgb(0, 99, 132)',
+            data: [],
+            fill: false,
+            responsive: true,
+            cubicInterpolationMode: 'monotone',
+            tension: 0.4,
+            pointStyle: 'circle',
+            pointRadius: 10,
+            pointHoverRadius: 15
+        }]
     };
+
+    for(var i in dataPlot){
+        // console.log()
+        data2.datasets[0].data.push( JSON.parse(dataPlot[i]).gasoline )
+        data2.datasets[1].data.push( JSON.parse(dataPlot[i]).alchool )
+    }
 
     const config = {
         type: 'line',
