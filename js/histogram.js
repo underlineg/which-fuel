@@ -21,11 +21,7 @@ export let getHistogram = function(){
 
 export let plotHistogramChart = async function(data, totalResults){
     let dataPlot = data;
-    // dataPlot.map(x=> {
-    //     console.log(x)
-    // })    
-    
-    let labels = ["1", "2", "3"];
+    let labels = [];
 
     let data2 = {
         labels: labels,
@@ -59,9 +55,9 @@ export let plotHistogramChart = async function(data, totalResults){
     };
 
     for(var i in dataPlot){
-        // console.log()
         data2.datasets[0].data.push( JSON.parse(dataPlot[i]).gasoline )
         data2.datasets[1].data.push( JSON.parse(dataPlot[i]).alchool )
+        labels.push( new Date(JSON.parse(dataPlot[i]).date).toLocaleString('pt-br', {timeZoneName: "short"}) );
     }
 
     const config = {
