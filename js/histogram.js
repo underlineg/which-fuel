@@ -31,10 +31,10 @@ export let plotHistogramChart = async function(data, totalResults){
             fill: false,
             cubicInterpolationMode: 'monotone',
             tension: 0.4,
-            responsive: true,
+            
             pointStyle: 'circle',
-            pointRadius: 10,
-            pointHoverRadius: 15
+            pointRadius: 8,
+            pointHoverRadius: 16
         },
         {
             label: 'Álcool',
@@ -42,19 +42,19 @@ export let plotHistogramChart = async function(data, totalResults){
             borderColor: 'rgb(0, 99, 132)',
             data: [],
             fill: false,
-            responsive: true,
+            
             cubicInterpolationMode: 'monotone',
             tension: 0.4,
             pointStyle: 'circle',
-            pointRadius: 10,
-            pointHoverRadius: 15
+            pointRadius: 8,
+            pointHoverRadius: 16
         }]
     };
 
     for(var i in dataPlot){
         data2.datasets[0].data.push( JSON.parse(dataPlot[i]).gasoline )
         data2.datasets[1].data.push( JSON.parse(dataPlot[i]).alchool )
-        data2.labels.push( new Date(JSON.parse(dataPlot[i]).date).toLocaleString('pt-br', {timeZoneName: "short"}) );
+        data2.labels.push( new Date(JSON.parse(dataPlot[i]).date).toLocaleString('pt-br', {timeZoneName: "short"}).split(" ")[0] );
     }
 
     const config = {
@@ -74,7 +74,7 @@ export let updateLineChart = async function(data){
 
     myChart.data.datasets[0].data.push( JSON.parse(dataPlot[dataPlot.length-1]).gasoline )
     myChart.data.datasets[1].data.push( JSON.parse(dataPlot[dataPlot.length-1]).alchool )
-    myChart.data.labels.push( new Date(JSON.parse(dataPlot[dataPlot.length-1]).date).toLocaleString('pt-br', {timeZoneName: "short"}) );
+    myChart.data.labels.push( new Date(JSON.parse(dataPlot[dataPlot.length-1]).date).toLocaleString('pt-br', {timeZoneName: "short"}).split(" ")[0] );
     
     myChart.update();
 }
@@ -99,7 +99,7 @@ export let plotHistogramTable = async function(data, totalResults){
         for(let i = 0, limI = totalResults; i < limI; i++){
             obj = eval ("(" + data[i] + ")");
             html += "<tr>"
-                html += `<td>${new Date(obj.date).toLocaleString('pt-br', {timeZoneName: "short"})}</td>`
+                html += `<td>${new Date(obj.date).toLocaleString('pt-br', {timeZoneName: "short"}).split(" ")[0]}</td>`
                 html += `<td>${obj.fuel}</td>`
                 html += `<td>R$ ${obj.alchool.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>`
                 

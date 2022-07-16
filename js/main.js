@@ -41,16 +41,16 @@ export let init = function(){
             
             if(count <= lim){
                 //usar alcool
-                baseAlertHTML += `alcool`
-                wich = "alcool"
+                baseAlertHTML += `Alcool`
+                wich = "Alcool"
                 baseAlertHTML += `<ul>
                     <li>Apesar do alcool gastar mais, ele é mais economico nesse momento</li>
                     <li>Diferença de preço de ${Math.round(count*100)/100} %</li>
                 </ul>`
             }else{
                 //usar gasolina
-                baseAlertHTML += `gasolina`
-                wich = "gasolina"
+                baseAlertHTML += `Gasolina`
+                wich = "Gasolina"
                 baseAlertHTML += `<ul>
                     <li>Apesar da gasolina ser mais cara, seu rendimento é maior, então é a opção mais economica nesse momento</li>
                     <li>Diferença de preço de ${Math.round(count*100)/100} %</li>

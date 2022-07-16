@@ -2,6 +2,7 @@ html, body{
     height: 100vh;
     font-family: 'Lato', Arial, Helvetica, sans-serif;
     font-size: 16px;
+    background-color: rgb(46, 46, 46);
 }
 
 html{
@@ -105,8 +106,9 @@ li{
 
 
 .main-section{
-    background-color: rgb(46, 46, 46);
     color: #fff;
+    width: 70%;
+    margin: 0 auto;
 }
     .main-section form button{
         display: block;
@@ -195,16 +197,22 @@ li{
         }
         .table-user-price-variation table th{
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 1.3rem;
         }
         .table-user-price-variation table td, .table-user-price-variation table th{
             border:1px solid rgba(255,255,255, 0.5);
-            padding: 0.5rem 0.8rem;
+            padding: 1rem 0.8rem;
         }
         .table-user-price-variation table td{
-            font-size: 0.6rem;
+            font-size: 1rem;
+            padding: 2.6rem 0.8rem;
         }
 
+
+.line-chart{
+    width: 80%;
+    margin: 1.1rem auto;
+}
 
 @media only screen and  (max-width:1125px) { 
     /* CSS rules here */
