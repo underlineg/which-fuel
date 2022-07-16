@@ -10,21 +10,23 @@ export let getHistogram = function(){
     .map( x => x[0]  )
     .filter(x=> x.includes('price-'))
     .map( x=> localStorage.getItem(x) )
-    .sort( (a, b) =>{
-        a = eval("("+a+")")
-        b = eval("("+b+")")
-        if(a.date > b.date) return -1;
-        else if(a.date < b.date) return 1;
-    })
     return keys;
 }
 
 export let plotHistogramChart = async function(data, totalResults){
     let dataPlot = data;
-    let labels = [];
+    
 
+    dataPlot = dataPlot.sort( (a, b) =>{
+        a = eval("("+a+")")
+        b = eval("("+b+")")
+        if(a.date > b.date) return 1;
+        else if(a.date < b.date) return -1;
+    })
+
+    //chart basic definition
     let data2 = {
-        labels: labels,
+        labels: [],
         datasets: [
         {
             label: 'Gasolina',
@@ -57,7 +59,7 @@ export let plotHistogramChart = async function(data, totalResults){
     for(var i in dataPlot){
         data2.datasets[0].data.push( JSON.parse(dataPlot[i]).gasoline )
         data2.datasets[1].data.push( JSON.parse(dataPlot[i]).alchool )
-        labels.push( new Date(JSON.parse(dataPlot[i]).date).toLocaleString('pt-br', {timeZoneName: "short"}) );
+        data2.labels.push( new Date(JSON.parse(dataPlot[i]).date).toLocaleString('pt-br', {timeZoneName: "short"}) );
     }
 
     const config = {
@@ -73,15 +75,29 @@ export let plotHistogramChart = async function(data, totalResults){
 }
 
 export let updateLineChart = async function(data){
-    myChart.data.datasets[0].data = [0, 10, 5, 22]
-    myChart.data.datasets[1].data = [0, 15, 25, 32];
-    myChart.data.labels.push('August')
+    let dataPlot = data.sort( (a, b) =>{
+        a = eval("("+a+")")
+        b = eval("("+b+")")
+        if(a.date > b.date) return 1;
+        else if(a.date < b.date) return -1;
+    })
+
+    myChart.data.datasets[0].data.push( JSON.parse(dataPlot[dataPlot.length-1]).gasoline )
+    myChart.data.datasets[1].data.push( JSON.parse(dataPlot[dataPlot.length-1]).alchool )
+    myChart.data.labels.push( new Date(JSON.parse(dataPlot[dataPlot.length-1]).date).toLocaleString('pt-br', {timeZoneName: "short"}) );
+    
     myChart.update();
 }
 
 export let plotHistogramTable = async function(data, totalResults){
     //retorna os últimos 5 resultaods por default
     totalResults = totalResults || data.length;
+    data = data .sort( (a, b) =>{
+        a = eval("("+a+")")
+        b = eval("("+b+")")
+        if(a.date > b.date) return -1;
+        else if(a.date < b.date) return 1;
+    })
     if(data.length > 0){
         let html = `<table>
             <tr>
