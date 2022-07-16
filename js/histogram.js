@@ -17,12 +17,7 @@ export let plotHistogramChart = async function(data, totalResults){
     let dataPlot = data;
     
 
-    dataPlot = dataPlot.sort( (a, b) =>{
-        a = eval("("+a+")")
-        b = eval("("+b+")")
-        if(a.date > b.date) return 1;
-        else if(a.date < b.date) return -1;
-    })
+    dataPlot = dataOrderDateByFirst(data)
 
     //chart basic definition
     let data2 = {
@@ -75,12 +70,7 @@ export let plotHistogramChart = async function(data, totalResults){
 }
 
 export let updateLineChart = async function(data){
-    let dataPlot = data.sort( (a, b) =>{
-        a = eval("("+a+")")
-        b = eval("("+b+")")
-        if(a.date > b.date) return 1;
-        else if(a.date < b.date) return -1;
-    })
+    let dataPlot = dataOrderDateByFirst(data)
 
     myChart.data.datasets[0].data.push( JSON.parse(dataPlot[dataPlot.length-1]).gasoline )
     myChart.data.datasets[1].data.push( JSON.parse(dataPlot[dataPlot.length-1]).alchool )
@@ -92,12 +82,7 @@ export let updateLineChart = async function(data){
 export let plotHistogramTable = async function(data, totalResults){
     //retorna os últimos 5 resultaods por default
     totalResults = totalResults || data.length;
-    data = data .sort( (a, b) =>{
-        a = eval("("+a+")")
-        b = eval("("+b+")")
-        if(a.date > b.date) return -1;
-        else if(a.date < b.date) return 1;
-    })
+    data = dataOrderDateByLast(data)
     if(data.length > 0){
         let html = `<table>
             <tr>
@@ -127,4 +112,24 @@ export let plotHistogramTable = async function(data, totalResults){
         html += "<table>"
         $('.table-user-price-variation').html(html)
     }
+}
+
+let dataOrderDateByFirst = function(data){
+    data.sort( (a, b) =>{
+        a = JSON.parse(a);
+        b = JSON.parse(b);
+        if(a.date > b.date) return 1;
+        else if(a.date < b.date) return -1;
+    })
+    return data;
+}
+
+let dataOrderDateByLast = function(data){
+    data.sort( (a, b) =>{
+        a = JSON.parse(a);
+        b = JSON.parse(b);
+        if(a.date > b.date) return -1;
+        else if(a.date < b.date) return 1;
+    })
+    return data;
 }
