@@ -1,0 +1,60 @@
+.splashscreen{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: normal;
+    align-items: center;
+    justify-content: center;
+    background: rgb(0,204,170);
+    background: -moz-linear-gradient(131deg, rgba(0,204,170,1) 0%, rgba(1,125,117,1) 100%);
+    background: -webkit-linear-gradient(131deg, rgba(0,204,170,1) 0%, rgba(1,125,117,1) 100%);
+    background: linear-gradient(131deg, rgba(0,204,170,1) 0%, rgba(1,125,117,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ccaa",endColorstr="#017d75",GradientType=1);
+
+    @include mobile{
+        .splashscreen{
+            flex-direction: column;
+        }
+    }
+
+    .container-image-splashscreen, .container-text-splashscreen{
+        width: 50%; 
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: auto;
+        align-self: auto;
+        order: 0;
+        @include mobile{
+            width: 100%;
+        }
+    }
+    .container-image-splashscreen{
+        background-image: url('../img/closeup-of-fuel-nozzles-at-a-gas-station.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 100%;
+    }
+
+    .container-text-splashscreen{
+        padding: 2rem;
+        color: #fff;
+    }
+
+    @include mobile{
+        
+        .splashscreen .container-image-splashscreen, .splashscreen  .container-text-splashscreen{
+            width: 100%;
+        }
+        .splashscreen  .container-text-splashscreen h1, .splashscreen  .container-text-splashscreen h4{
+            margin: 1.2rem 1.5rem;
+        }
+        .splashscreen  .container-text-splashscreen .btn{
+            margin-left: auto;
+            margin-right: auto;
+            width: 30%;
+            display: block;
+        }
+    }
+
+}
