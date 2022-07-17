@@ -12,9 +12,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ccaa",endColorstr="#017d75",GradientType=1);
 
     @include mobile{
-        .splashscreen{
-            flex-direction: column;
-        }
+        flex-direction: column;
     }
 
     .container-image-splashscreen, .container-text-splashscreen{
@@ -26,6 +24,7 @@
         order: 0;
         @include mobile{
             width: 100%;
+            height: 50vh;
         }
     }
     .container-image-splashscreen{
@@ -33,28 +32,27 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
-        height: 100%;
+        height: 100vh;
+        @include mobile{
+            height: 50vh;
+        }
     }
 
     .container-text-splashscreen{
         padding: 2rem;
         color: #fff;
-    }
-
-    @include mobile{
-        
-        .splashscreen .container-image-splashscreen, .splashscreen  .container-text-splashscreen{
-            width: 100%;
-        }
-        .splashscreen  .container-text-splashscreen h1, .splashscreen  .container-text-splashscreen h4{
-            margin: 1.2rem 1.5rem;
-        }
-        .splashscreen  .container-text-splashscreen .btn{
-            margin-left: auto;
-            margin-right: auto;
-            width: 30%;
-            display: block;
+        @include mobile{
+            width: calc(100% - 2rem);
+            padding: 1rem;
+            h1, h4{
+                margin: 1.2rem 1.5rem;
+            }
+            .btn{
+                margin-left: auto;
+                margin-right: auto;
+                width: 30%;
+                display: block;
+            }
         }
     }
-
 }

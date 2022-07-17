@@ -2,12 +2,15 @@
     color: #fff;
     width: 70%;
     margin: 0 auto;
-}
-    .main-section form button{
+
+    @include mobile{
+        width: calc(100% - 1.4rem);
+        padding: 0 0.7rem;
+    }
+    form button{
         display: block;
     }
-
-    .main-section h1{
+    h1{
         text-align: center;
     }
     .container-inputs{
@@ -19,8 +22,7 @@
         align-content: normal;
         align-items: center;
         justify-content: center;
-    }
-        .container-inputs .container-input-fuel{
+        .container-input-fuel{
             flex-grow: 0;
             flex-shrink: 1;
             flex-basis: auto;
@@ -30,15 +32,17 @@
             padding: 0.5rem;
             text-align: center;
             overflow: hidden;
-        }
-            .container-inputs .container-input-fuel label{
+            label{
                 display: block;
                 margin: 0.8rem 0;
                 font-weight: 300;
                 text-transform: uppercase;
                 font-size: 1.2rem;
+                @include mobile{
+                    font-size: 0.8rem;
+                }
             }
-            .container-inputs .container-input-fuel input{
+            input{
                 border:1px solid #ad9;
                 padding: 0.4rem 0;
                 width: 100%;
@@ -47,8 +51,50 @@
                 outline: none;
                 font-weight: 700;
                 border-radius: 0.3rem;
+                @include mobile{
+                    font-size: 1.2rem;
+                }
             }
-
+        }
+    }
+    .table-user-price-variation{
+        width: 90%;
+        margin: 1.2rem auto;
+        @include mobile{
+            width: 100%;
+            overflow: auto;
+        }
+        table{
+            width: 100%;
+            text-align: center;
+            h4{
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+            th{
+                font-weight: 700;
+                font-size: 1.3rem;
+                @include mobile{
+                    font-size: 0.7rem;
+                }
+            }
+            td, th{
+                border:1px solid rgba(255,255,255, 0.5);
+                padding: 1rem 0.8rem;
+                @include mobile{
+                    padding: 0.5rem 0.4rem;
+                }
+            }
+            td{
+                font-size: 1rem;
+                padding: 2.6rem 0.8rem;
+                @include mobile{
+                    font-size: 0.5rem;
+                    padding: 0.4rem;
+                }
+            }
+        }
+    }
     .alert-user{
         width: 80%;
         margin:1.6rem auto;
@@ -65,64 +111,28 @@
         height: 0;
         overflow: hidden;
         transition: all 300ms ease-out;
-    }
-    .alert-user.open{
-        height: auto;
-        padding: 1.2rem 1.8rem;
-    }
-    .alert-user ul li{
-        text-align: left;
-        font-size: 1.2rem;
-        font-weight: 400;
-    }
-
-.table-user-price-variation{
-    width: 90%;
-    margin: 1.2rem auto;
-}
-    .table-user-price-variation table{
-        width: 100%;
-        text-align: center;
-    }
-        .table-user-price-variation table h4{
-            font-weight: 700;
-            text-transform: uppercase;
+        @include mobile{
+            width: 60%;
         }
-        .table-user-price-variation table th{
-            font-weight: 700;
-            font-size: 1.3rem;
+        &.open{
+            height: auto;
+            padding: 1.2rem 1.8rem;
+            @include mobile{
+                padding: 0.8rem 1.2rem;
+            }
         }
-        .table-user-price-variation table td, .table-user-price-variation table th{
-            border:1px solid rgba(255,255,255, 0.5);
-            padding: 1rem 0.8rem;
+        ul li{
+            text-align: left;
+            font-size: 1.2rem;
+            font-weight: 400;
+            @include mobile{
+                font-size: 0.8rem;
+            }
         }
-        .table-user-price-variation table td{
-            font-size: 1rem;
-            padding: 2.6rem 0.8rem;
-        }
-
-
-.line-chart{
-    width: 80%;
-    margin: 1.1rem auto;
-}
-
-@include mobile{
-    .container-inputs .container-input-fuel label{
-        font-size: 0.8rem;
     }
-    .container-inputs .container-input-fuel input{
-        font-size: 1.2rem;
-    }
-
-    .alert-user{
-        width: 60%;
-
-    }
-    .alert-user.open{
-        padding: 0.8rem 1.2rem;
-    }
-    .alert-user ul li{
-        font-size: 0.8rem;
-    }
+    
+    .line-chart{
+        width: 80%;
+        margin: 1.1rem auto;
+    }    
 }
